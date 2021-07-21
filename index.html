@@ -28,6 +28,7 @@
 <h3 class="inblock">Found</h3>
 <p id="workerOutput"; class="inblock">0</p>
 <p class="inblock">digits</p>
+<div id="pinumber">Pi number: </div>
 
 
 <script>
@@ -38,7 +39,8 @@
                 worker = new Worker("worker.js");
             }
             worker.onmessage = function(event) {
-                document.getElementById("workerOutput").innerHTML = (event.data);
+                document.getElementById("workerOutput").innerHTML = (event.data[0]);
+                document.getElementById("pinumber").append(event.data[1]);
             };
         } else {
             document.getElementById("workerOutput").innerHTML = "Web Workers are not supported in your browser";
@@ -46,27 +48,4 @@
     }
 </script>
 
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyDIBWdtxZ0iWwKhOLPQF1AbyatW6arNmxY",
-    authDomain: "pi-number-35e67.firebaseapp.com",
-    databaseURL: "https://pi-number-35e67.firebaseio.com",
-    projectId: "pi-number-35e67",
-    storageBucket: "pi-number-35e67.appspot.com",
-    messagingSenderId: "804143376819",
-    appId: "1:804143376819:web:4a5d431a8b78b61e0983c6"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
 </body>

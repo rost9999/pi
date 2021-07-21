@@ -17,14 +17,12 @@ function* next_pi_digit(){
 var iterator = next_pi_digit();
 //let elementPi = document.getElementById("pi");
 
-let pi = [];
 
-i = 0
-while (i<1){
+let i = 0
+while (true){
   lastpi = iterator.next()['value'];
-  pi.push(lastpi);
-  postMessage(123);
- // i+=1;
+  postMessage([i,lastpi]);
+  i+=1;
 }
 
 
