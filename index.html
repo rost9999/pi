@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.inblock {
+    display: inline-block;
+}
+</style>
+</head>
+<body>
+
+
+<h2>Pi Number</h2>
+
+<button class="button" onclick="testWorker()">Start</button>
+<h3 class="inblock">Found</h3>
+<p id="workerOutput"; class="inblock">0</p>
+<p class="inblock">digits</p>
+
+
+<script>
+    let worker;
+    function testWorker() {
+        if (typeof(Worker) !== "undefined") {
+            if (typeof(worker) == "undefined") {
+                worker = new Worker("worker.js");
+            }
+            worker.onmessage = function(event) {
+                document.getElementById("workerOutput").innerHTML = (event.data);
+            };
+        } else {
+            document.getElementById("workerOutput").innerHTML = "Web Workers are not supported in your browser";
+        }
+    }
+</script>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDIBWdtxZ0iWwKhOLPQF1AbyatW6arNmxY",
+    authDomain: "pi-number-35e67.firebaseapp.com",
+    databaseURL: "https://pi-number-35e67.firebaseio.com",
+    projectId: "pi-number-35e67",
+    storageBucket: "pi-number-35e67.appspot.com",
+    messagingSenderId: "804143376819",
+    appId: "1:804143376819:web:4a5d431a8b78b61e0983c6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</body>
