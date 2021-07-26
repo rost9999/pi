@@ -41,6 +41,7 @@
             worker.onmessage = function(event) {
                 document.getElementById("workerOutput").innerHTML = (event.data[0]);
                 document.getElementById("pinumber").append(event.data[1]);
+                //window.scrollTo(0,document.body.scrollHeight);
             };
         } else {
             document.getElementById("workerOutput").innerHTML = "Web Workers are not supported in your browser";

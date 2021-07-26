@@ -11,24 +11,13 @@ function* next_pi_digit(){
   
     }
   }
-  
-  
-  
+
 var iterator = next_pi_digit();
-//let elementPi = document.getElementById("pi");
-
-
+let listOfPI = [];
 let i = 0
 while (true){
   lastpi = iterator.next()['value'];
+  listOfPI.push(lastpi);
   postMessage([i,lastpi]);
   i+=1;
 }
-
-
-//function worker() {
-//  elementPi.append(iterator.next()['value']);
-//}
-
-
-
