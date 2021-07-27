@@ -14,6 +14,14 @@
   cursor: pointer;
 }
 
+body {
+    height: 100%;
+}
+
+textarea {
+    width: 99%;
+    height: 84vh;
+}
 .inblock {
     display: inline-block;
 }
@@ -28,8 +36,9 @@
 <h3 class="inblock">Found</h3>
 <p id="workerOutput"; class="inblock">0</p>
 <p class="inblock">digits</p>
-<div style="word-wrap: break-word" id="pinumber">Pi number: </div>
-
+<div>
+<textarea readonly wrap="soft" id="pinumber"></textarea>
+</div>
 
 <script>
     let worker;
